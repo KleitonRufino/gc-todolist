@@ -7,11 +7,11 @@
 
 	<ui:define name="titulo">Notas</ui:define>
 
-	<ui:define name="corpo">
+	<ui:define name="corpo" >
 		<h:form id="form">
 			<p:growl id="msgs" showDetail="true" />
 
-			<p:panel header="Nota">
+			<p:panel header="Nota" >
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="titulo" value="Titulo:" />
 					<p:inputText id="titulo" maxlength="20" value="#{notasBean.title}" />
@@ -33,7 +33,7 @@
 					<p:calendar id="tempo" value="#{notasBean.horario}"
 						pattern="HH:mm a" timeOnly="true" />
 				</h:panelGrid>
-				<p:commandButton value="Enviar" actionListener="#{notasBean.click}"
+				<p:commandButton value="Enviar" action="#{notasBean.click()}"
 					icon="ui-icon-check" />
 			</p:panel>
 		</h:form>
@@ -43,6 +43,7 @@
 		<br />Seja bem-vindo!<br />
 		<br />
 		<br />
+		
 	</ui:define>
 
 </ui:composition>

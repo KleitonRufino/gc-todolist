@@ -19,13 +19,14 @@ public class NotasBean {
 	private Date data;
 	private Date horario;
 	
-	public void click(){
+	public String click(){
 		Nota nota = new Nota();
 		nota.setTitle(title);
 		nota.setDescription(description);
 		nota.setData(data);
 		nota.setHorario(horario);
 		notas.add(nota);
+		return "/listar?faces-redirect=true";
 	}
 	public Date getData() {
 		return data;

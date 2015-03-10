@@ -1,0 +1,48 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Notas</ui:define>
+
+	<ui:define name="corpo">
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:panel header="Nota">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="titulo" value="Titulo:" />
+					<p:inputText id="titulo" maxlength="20" value="#{notasBean.title}" />
+
+				</h:panelGrid>
+				<h:panelGrid columns="1" cellpadding="5">
+					<h3>Descricao</h3>
+					<p:inputTextarea rows="5" cols="30" counter="display"
+						maxlength="40" counterTemplate="{0} caracteres restantes."
+						autoResize="false" value="#{notasBean.description}" />
+					<h:outputText id="display" />
+				</h:panelGrid>
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="data" value="Data:" />
+					<p:calendar id="data" value="#{notasBean.data}"
+						pattern="dd-MM-yyyy" mask="true" />
+
+					<p:outputLabel for="tempo" value="Tempo:" />
+					<p:calendar id="tempo" value="#{notasBean.horario}"
+						pattern="HH:mm a" timeOnly="true" />
+				</h:panelGrid>
+				<p:commandButton value="Enviar" actionListener="#{notasBean.click}"
+					icon="ui-icon-check" />
+			</p:panel>
+		</h:form>
+
+		<br />
+		<br />
+		<br />Seja bem-vindo!<br />
+		<br />
+		<br />
+	</ui:define>
+
+</ui:composition>

@@ -8,5 +8,31 @@
 	<ui:define name="titulo">Notas</ui:define>
 
 	<ui:define name="corpo">
+		<h:form id="form">
+			<p:carousel value="#{NotasList.notas}" headerText="Minhas Notas"
+				var="nota" itemStyleClass="notaItem">
+				<h:panelGrid columns="2" style="width:100%" cellpadding="5"
+					columnClasses="label,value">
+					<f:facet name="header">
+					</f:facet>
+					<h:outputText value="Title:" />
+					<h:outputText value="#{nota.title}" />
+
+					<h:outputText value="Description" />
+					<h:outputText value="#{nota.description}" />
+
+					<h:outputText value="Data:" />
+					<h:outputText value="#{nota.data}" />
+
+					<h:outputText value="Horario" />
+					<h:outputText value="$#{nota.horario}" />
+				</h:panelGrid>
+
+				<f:facet name="footer">
+
+				</f:facet>
+			</p:carousel>
+
+		</h:form>
 	</ui:define>
 </ui:composition>

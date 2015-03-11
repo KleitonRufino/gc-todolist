@@ -13,12 +13,13 @@ import com.jsf.gc.model.Nota;
 @SessionScoped
 public class NotasBean {
 	private List<Nota> notas = new ArrayList<Nota>();
+	private Nota selectedNota;
 	private String title;
 	private String description;
 	private Date data;
 	private Date horario;
-	
-	public String click(){
+
+	public String click() {
 		Nota nota = new Nota();
 		nota.setTitle(title);
 		nota.setDescription(description);
@@ -27,6 +28,7 @@ public class NotasBean {
 		notas.add(nota);
 		return "/listar?faces-redirect=true";
 	}
+
 	public Date getData() {
 		return data;
 	}
@@ -67,5 +69,12 @@ public class NotasBean {
 		this.notas = notas;
 	}
 
-	
+	public Nota getSelectedNota() {
+		return selectedNota;
+	}
+
+	public void setSelectedNota(Nota selectedNota) {
+		this.selectedNota = selectedNota;
+	}
+
 }

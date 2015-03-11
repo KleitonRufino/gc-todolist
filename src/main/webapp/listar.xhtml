@@ -8,30 +8,26 @@
 	<ui:define name="titulo">Notas</ui:define>
 
 	<ui:define name="corpo">
-		<h:form id="form">
-			<p:carousel value="#{NotasBean.notas}" headerText="Minhas Notas"
-				var="nota" itemStyleClass="notaItem">
-				<h:panelGrid columns="2" style="width:100%" cellpadding="5"
-					columnClasses="label,value">
-					<f:facet name="header">
-					</f:facet>
-					<h:outputText value="Title:" />
-					<h:outputText value="#{nota.title}" />
+		<p:dataTable var="nota" value="#{notasBean.notas}">
+			<p:column headerText="Titulo">
+				<h:outputText value="#{nota.title}" />
+			</p:column>
 
-					<h:outputText value="Description" />
-					<h:outputText value="#{nota.description}" />
+			<p:column headerText="Descrição">
+				<h:outputText value="#{nota.description}" />
+			</p:column>
 
-					<h:outputText value="Data:" />
-					<h:outputText value="#{nota.data}" />
+			<p:column headerText="Data">
+				<h:outputText value="#{nota.data}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+			</p:column>
 
-					<h:outputText value="Horario" />
-					<h:outputText value="#{nota.horario}" />
-				</h:panelGrid>
-
-				<f:facet name="footer">
-				</f:facet>
-			</p:carousel>
-
-		</h:form>
+			<p:column headerText="Hora">
+				<h:outputText value="#{nota.horario}" >
+				<f:convertDateTime pattern="HH:mm a" />
+				</h:outputText>
+			</p:column>
+		</p:dataTable>
 	</ui:define>
 </ui:composition>
